@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cenon Dale Macaraeg - Online Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --dark-text: #2c3e50;
+            --light-text: #7f8c8d;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .header p {
+            margin: 10px 0 0;
+            font-size: 1.1rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2 i {
+            color: var(--accent-color);
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+        
+        .date {
+            color: var(--light-text);
+            font-style: italic;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        li:before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 5px;
+        }
+        
+        .progress-container {
+            width: 100%;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            border-radius: 5px;
+            background-color: var(--primary-color);
+            width: 0;
+            transition: width 1s ease-in-out;
+        }
+        
+        .tag {
+            display: inline-block;
+            background-color: var(--light-bg);
+            color: var(--secondary-color);
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin: 3px;
+            font-size: 0.8rem;
+            border: 1px solid #ddd;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .header {
+                padding: 30px 15px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Cenon Dale Macaraeg</h1>
+            <p>Senior Junior Developer</p>
+            <div class="contact-info">
+                <a href="mailto:john.doe@email.com"><i class="fas fa-envelope"></i> john.doe@email.com</a>
+                <a href="tel:+15551234567"><i class="fas fa-phone"></i> (555) 123-4567</a>
+                <a href="https://linkedin.com/in/johndoe" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/johndoe</a>
+                <a href="https://github.com/johndoe" target="_blank"><i class="fab fa-github"></i> github.com/johndoe</a>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2><i class="fas fa-user"></i> PROFILE</h2>
+                <p>Innovative and detail-oriented Junior Developer with little experience designing and implementing web applications. Specialized in JavaScript frameworks with extensive knowledge of modern web technologies. Passionate about creating efficient, scalable solutions with clean, maintainable code.</p>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-briefcase"></i> EXPERIENCE</h2>
+                
+                <div class="subsection">
+                    <h3>TECH CORP INC.</h3>
+                    <span class="job-title">Junior Web Developer</span>
+                    <span class="date">June 2020 - Present</span>
+                    <ul>
+                        <li>Led a team of 5 developers to rebuild the company's flagship SaaS product using React and Node.js</li>
+                        <li>Improved application performance by 40% through code optimization and implementing caching strategies</li>
+                        <li>Designed and implemented RESTful APIs that reduced server response time by 30%</li>
+                        <li>Mentored junior developers and conducted code reviews to maintain high code quality standards</li>
+                    </ul>
+                </div>
+                
+                <div class="subsection">
+                    <h3>WEB SOLUTIONS LLC</h3>
+                    <span class="job-title">Junior Developer</span>
+                    <span class="date">January 2018 - May 2020</span>
+                    <ul>
+                        <li>Developed and maintained 15+ client websites using modern JavaScript frameworks</li>
+                        <li>Collaborated with designers to implement responsive, pixel-perfect UIs</li>
+                        <li>Reduced page load times by implementing lazy loading and image optimization techniques</li>
+                        <li>Automated deployment processes using CI/CD pipelines, reducing deployment time by 60%</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-graduation-cap"></i> EDUCATION</h2>
+                <h3>BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY</h3>
+                <span class="date">FEU Institute of Technology, 2024 - 2028</span>
+                <ul>
+                    <li>GPA: 3.4/4.0 (Magna Cum Laude)</li>
+                    <li>Dean's List: 6 semesters</li>
+                    <li>Senior Project: Developed a machine learning-based recommendation system</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-code"></i> SKILLS</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h4>Frontend</h4>
+                        <div>React.js <div class="progress-container"><div class="progress-bar" style="width: 95%"></div></div></div>
+                        <div>JavaScript <div class="progress-container"><div class="progress-bar" style="width: 90%"></div></div></div>
+                        <div>HTML/CSS <div class="progress-container"><div class="progress-bar" style="width: 85%"></div></div></div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Backend</h4>
+                        <div>Node.js <div class="progress-container"><div class="progress-bar" style="width: 90%"></div></div></div>
+                        <div>Python <div class="progress-container"><div class="progress-bar" style="width: 80%"></div></div></div>
+                        <div>SQL <div class="progress-container"><div class="progress-bar" style="width: 85%"></div></div></div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Tools & Technologies</h4>
+                        <div>Git <div class="progress-container"><div class="progress-bar" style="width: 90%"></div></div></div>
+                        <div>AWS <div class="progress-container"><div class="progress-bar" style="width: 75%"></div></div></div>
+                        <div>Docker <div class="progress-container"><div class="progress-bar" style="width: 70%"></div></div></div>
+                    </div>
+                </div>
+                
+                <h4 style="margin-top: 20px;">Additional Skills:</h4>
+                <div>
+                    <span class="tag">Responsive Design</span>
+                    <span class="tag">RESTful APIs</span>
+                    <span class="tag">GraphQL</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Agile Methodologies</span>
+                    <span class="tag">Unit Testing</span>
+                    <span class="tag">CI/CD</span>
+                    <span class="tag">UX Principles</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-certificate"></i> CERTIFICATIONS</h2>
+                <ul>
+                    <li>AWS Certified Developer - Associate (2022)</li>
+                    <li>React Professional Certification (2021)</li>
+                    <li>Google Cloud Professional Data Engineer (2020)</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2><i class="fas fa-project-diagram"></i> PROJECTS</h2>
+                <h3>E-commerce Platform</h3>
+                <ul>
+                    <li>Built a full-stack e-commerce platform with React, Node.js, and MongoDB</li>
+                    <li>Implemented payment processing with Stripe API</li>
+                    <li>Reduced cart abandonment by 25% through optimized checkout flow</li>
+                </ul>
+                
+                <h3>Task Management App</h3>
+                <ul>
+                    <li>Developed a collaborative task management application with real-time updates</li>
+                    <li>Used Socket.io for real-time functionality</li>
+                    <li>Implemented JWT authentication for secure access</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation for progress bars
+        document.addEventListener('DOMContentLoaded', function() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
