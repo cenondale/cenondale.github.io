@@ -3,37 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Resume</title>
+    <title>Cenon Dale C. Macaraeg - Online Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #000;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        header {
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 32px;
+            text-transform: uppercase;
+        }
+        h2 {
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            text-transform: uppercase;
+        }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .contact-info p {
+            margin: 5px 0;
+        }
+        .education-item, .org-item, .experience-item {
+            margin-bottom: 15px;
+        }
+        .institution {
+            font-weight: bold;
+        }
+        .degree {
+            font-style: italic;
+        }
+        .date {
+            float: right;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
-    <h1> Cenon Dale C. Macaraeg </h1>
-
-    <h2> Information </h2>
-    <p>Email: cenolidale@gmail.com</p>
-    <p>Contact Number: 09691226897</p>
-    <p>Address: 99 Baco Street, Sta. Mesa Heights, Quezon City</p>
-
-    <h2> Educational Background </h2>
-    <p>FEU Institute of Technology: Bachelor of Science in Information Technology specialized in Business Analytics (2024-2028)</p>
-    <p>University of Santo Tomas: Bachelor of Science in Industrial Engineering (2023-2024)</p>
-    <p>University of Santo Tomas: Science, Technology, Engineering, Mathematics Strand</p>
-
-    <h2> Organizations and Memberships </h2>
-    <p>FEU Tech Alliance of Information Technology Students - National Capital Region</p>
-    <p>FEU Tech Junior Philippine Computer Society - National Capital Region</p>
-    <p>FEU Tech Association for Computing Machinery - National Capital Region</p>
-    <p>FIT iTamaraws Esports Club - National Capital Region</p>
-    <p> UST-JHS Liturgical Ministry</p>
-    <P> UST-JHS Mathematics Club</P>
-    <p> </p>
-    <p>UST Pax Romana - Engineering Unit</p>
-    <P>UST Industrial Engineering Circle</P>
-
-    <h2> Experience </h2>
-    Class President 1st Year, 1st Sem UST Faculty of Engineering
-
-
-
 <body>
-    
+    <div class="container">
+        <header>
+            <h1>Cenon Dale C. Macaraeg</h1>
+            <div class="contact-info">
+                <p>Email: cenolidale@gmail.com</p>
+                <p>Contact: 09691226897</p>
+                <p>Address: 99 Baco Street, Sta. Mesa Heights, Quezon City</p>
+            </div>
+        </header>
+
+        <section>
+            <h2>Educational Background</h2>
+            <div class="education-item">
+                <span class="institution">FEU Institute of Technology</span>
+                <span class="degree">Bachelor of Science in Information Technology specialized in Business Analytics</span>
+                <span class="date">2024-2028</span>
+            </div>
+            <div class="education-item">
+                <span class="institution">University of Santo Tomas</span>
+                <span class="degree">Bachelor of Science in Industrial Engineering</span>
+                <span class="date">2023-2024</span>
+            </div>
+            <div class="education-item">
+                <span class="institution">University of Santo Tomas</span>
+                <span class="degree">Science, Technology, Engineering, Mathematics Strand</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Organizations and Memberships</h2>
+            <ul>
+                <li class="org-item">FEU Tech Alliance of Information Technology Students - National Capital Region</li>
+                <li class="org-item">FEU Tech Junior Philippine Computer Society - National Capital Region</li>
+                <li class="org-item">FEU Tech Association for Computing Machinery - National Capital Region</li>
+                <li class="org-item">FIT iTamaraws Esports Club - National Capital Region</li>
+                <li class="org-item">UST-JHS Liturgical Ministry</li>
+                <li class="org-item">UST-JHS Mathematics Club</li>
+                <li class="org-item">UST Pax Romana - Engineering Unit</li>
+                <li class="org-item">UST Industrial Engineering Circle</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <span class="position">Class President</span>
+                <span class="institution">UST Faculty of Engineering</span>
+                <span class="date">1st Year, 1st Sem</span>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
