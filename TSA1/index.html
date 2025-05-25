@@ -8,63 +8,102 @@
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
-            background-color: #f8f9fa;
+            background-color: #f0f8ff;
         }
         .container {
             background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 0;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
-        h1 {
+        .table-header {
+            background-color: #85c0f7;
+            border: 1px solid #000000;
+            color: rgb(0, 0, 0);
+            padding: 15px 20px;
             text-align: center;
-            margin-bottom: 20px;
-            color: #343a40;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #85c0f7;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 0;
         }
         th, td {
-            border: 1px solid #dee2e6;
-            padding: 12px;
+            border: 1px solid #000000;
+            padding: 12px 15px;
             text-align: left;
         }
         th {
-            background-color: #495057;
-            color: white;
+            background-color: #d3d3d3;
+            color: rgb(0, 0, 0);
             font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
         }
         tr:nth-child(even) {
             background-color: #f8f9fa;
         }
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
         tr:hover {
-            background-color: #e9ecef;
+            background-color: #e6f7ff;
+        }
+        .highlight {
+            background-color: #fffacd;
+            font-weight: bold;
         }
         .product-img-cell {
             padding: 0;
             width: 300px;
+            background-color: #f5f5f5;
         }
         .product-img {
-            width: 300px;
-            height: 300px;
+            width: 350px;
+            height: 350px;
             object-fit: cover;
             display: block;
-            border-left: 1px solid #dee2e6;
+            border-left: 1px solid #d3d3d3;
         }
         .empty-cell {
-            color: #6c757d;
+            color: #a9a9a9;
             font-style: italic;
         }
         .center-text {
             text-align: center;
         }
+        .quantity-high {
+            color: #000000;
+            font-weight: bold;
+        }
+        .quantity-medium {
+            color: #000000;
+            font-weight: bold;
+        }
+        .quantity-low {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .date-cell {
+            font-weight: bold;
+            color: #000000;
+        }
+        .supplier-cell {
+            background-color: #eaf7fd;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>INVENTORY SYSTEMS</h1>
+        <div class="table-header">INVENTORY SYSTEMS</div>
         <table>
             <thead>
                 <tr>
@@ -79,10 +118,10 @@
             <tbody>
                 <tr>
                     <td>10001</td>
-                    <td>Boy Bawang Adobo (pc)</td>
-                    <td>1000</td>
-                    <td class="center-text">KSK</td>
-                    <td>5/14/2019</td>
+                    <td><span>Boy Bawang Adobo (pc)</span></td>
+                    <td class="quantity-high">1000</td>
+                    <td class="center-text supplier-cell">KSK</td>
+                    <td class="date-cell">5/14/2019</td>
                     <td rowspan="8" class="product-img-cell">
                         <img src="https://images-na.ssl-images-amazon.com/images/I/617JPeRuDgL.jpg" alt="Boy Bawang Adobo" class="product-img">
                     </td>
@@ -90,49 +129,49 @@
                 <tr>
                     <td>10002</td>
                     <td>Boy Bawang Adobo (pack)</td>
-                    <td>200</td>
+                    <td class="quantity-low">200</td>
                     <td class="empty-cell">-</td>
                     <td class="empty-cell">-</td>
                 </tr>
                 <tr>
-                    <td>10003</td>
-                    <td>Boy Bawang Garlic (pc)</td>
-                    <td>3000</td>
+                    <td class="highlight">10003</td>
+                    <td><span class="highlight">Boy Bawang Garlic (pc)</span></td>
+                    <td class="quantity-high">3000</td>
                     <td class="empty-cell">-</td>
-                    <td>5/15/2019</td>
+                    <td class="date-cell">5/15/2019</td>
                 </tr>
                 <tr>
-                    <td>10004</td>
-                    <td>Boy Bawang Garlic (pack)</td>
-                    <td>150</td>
+                    <td class="highlight">10004</td>
+                    <td><span class="highlight">Boy Bawang Garlic (pack)</span></td>
+                    <td class="quantity-low">150</td>
                     <td class="empty-cell">-</td>
                     <td class="empty-cell">-</td>
                 </tr>
                 <tr>
                     <td>10005</td>
                     <td>Boy Bawang Spicy (pc)</td>
-                    <td>4000</td>
+                    <td class="quantity-high">4000</td>
                     <td class="empty-cell">-</td>
-                    <td>5/16/2019</td>
+                    <td class="date-cell">5/16/2019</td>
                 </tr>
                 <tr>
                     <td>10006</td>
                     <td>Boy Bawang Spicy (pack)</td>
-                    <td>240</td>
+                    <td class="quantity-medium">240</td>
                     <td class="empty-cell">-</td>
                     <td class="empty-cell">-</td>
                 </tr>
                 <tr>
-                    <td>10007</td>
-                    <td>Boy Bawang BBQ (pc)</td>
-                    <td>3000</td>
+                    <td class="highlight">10007</td>
+                    <td><span class="highlight">Boy Bawang BBQ (pc)</span></td>
+                    <td class="quantity-high">3000</td>
                     <td class="empty-cell">-</td>
-                    <td>5/17/2019</td>
+                    <td class="date-cell">5/17/2019</td>
                 </tr>
                 <tr>
-                    <td>10008</td>
-                    <td>Boy Bawang BBQ (pack)</td>
-                    <td>210</td>
+                    <td class="highlight">10008</td>
+                    <td><span class="highlight">Boy Bawang BBQ (pack)</span></td>
+                    <td class="quantity-medium">210</td>
                     <td class="empty-cell">-</td>
                     <td class="empty-cell">-</td>
                 </tr>
