@@ -3,148 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Resume</title>
+    <title>Inventory Systems</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            color: #000;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-        .container {
-            width: 100%;
-            margin: 0 auto;
-        }
-        header {
-            border-bottom: 2px solid #000;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            margin: 20px;
         }
         h1 {
-            margin: 0;
-            font-size: 28px;
-        }
-        .contact-info {
-            margin-top: 5px;
-        }
-        section {
+            text-align: center;
             margin-bottom: 20px;
         }
-        h2 {
-            border-bottom: 1px solid #000;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-            font-size: 20px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
         }
-        .job, .education {
-            margin-bottom: 15px;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
         }
-        .job-title, .degree {
+        th {
+            background-color: #f2f2f2;
             font-weight: bold;
-            display: inline;
         }
-        .company, .school {
-            font-weight: bold;
-            display: inline;
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
         }
-        .date {
-            float: right;
-            font-style: italic;
-        }
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .skill {
-            background-color: #f0f0f0;
-            padding: 5px 10px;
-            border-radius: 3px;
-        }
-        ul {
-            margin-top: 5px;
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 5px;
+        .product-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>YOUR FULL NAME</h1>
-            <div class="contact-info">
-                <span>202412180@fit.edu.ph/span> | 
-            </div>
-        </header>
-
-        <section>
-            <h2>PROFESSIONAL SUMMARY</h2>
-            <p>Detail-oriented professional with X years of experience in [your field]. Proven track record of [key achievement]. Skilled in [key skills]. Seeking to leverage my expertise in [specific area] at [target company/industry].</p>
-        </section>
-
-        <section>
-            <h2>WORK EXPERIENCE</h2>
-            <div class="job">
-                <span class="job-title">Your Job Title</span> - <span class="company">Company Name</span>
-                <span class="date">Month Year - Present</span>
-                <ul>
-                    <li>Accomplishment or responsibility with measurable impact if possible (e.g., "Increased sales by 20%")</li>
-                    <li>Key responsibility or achievement using action verbs (e.g., "Led team of 5 developers")</li>
-                    <li>Another significant contribution or responsibility</li>
-                </ul>
-            </div>
-            
-            <div class="job">
-                <span class="job-title">Previous Job Title</span> - <span class="company">Previous Company</span>
-                <span class="date">Month Year - Month Year</span>
-                <ul>
-                    <li>Notable achievement or responsibility</li>
-                    <li>Another key contribution</li>
-                    <li>Relevant project or initiative you led</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>EDUCATION</h2>
-            <div class="education">
-                <span class="degree">Degree Name</span> - <span class="school">University Name</span>
-                <span class="date">Graduation Year</span>
-                <p>Relevant coursework, honors, or activities</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>SKILLS</h2>
-            <div class="skills">
-                <div class="skill">Skill 1</div>
-                <div class="skill">Skill 2</div>
-                <div class="skill">Skill 3</div>
-                <div class="skill">Skill 4</div>
-                <div class="skill">Skill 5</div>
-                <div class="skill">Skill 6</div>
-                <div class="skill">Skill 7</div>
-                <div class="skill">Skill 8</div>
-            </div>
-        </section>
-
-        <section>
-            <h2>PROJECTS</h2>
-            <div class="job">
-                <span class="job-title">Project Name</span>
-                <span class="date">Month Year</span>
-                <ul>
-                    <li>Brief description of the project and your role</li>
-                    <li>Technologies or skills utilized</li>
-                    <li>Outcome or impact of the project</li>
-                </ul>
-            </div>
-        </section>
-    </div>
+    <h1>INVENTORY SYSTEMS</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Supplier</th>
+                <th>Date</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>10001</td>
+                <td>Boy Bawang Adobo (pc)</td>
+                <td>1000</td>
+                <td>KSK</td>
+                <td>5/14/2019</td>
+                <td><img src="https://via.placeholder.com/50?text=Adobo" alt="Boy Bawang Adobo" class="product-img"></td>
+            </tr>
+            <tr>
+                <td>10002</td>
+                <td>Boy Bawang Adobo (pack)</td>
+                <td>200</td>
+                <td></td>
+                <td></td>
+                <td><img src="https://via.placeholder.com/50?text=Adobo+Pack" alt="Boy Bawang Adobo Pack" class="product-img"></td>
+            </tr>
+            <tr>
+                <td>10003</td>
+                <td>Boy Bawang Garlic (pc)</td>
+                <td>3000</td>
+                <td></td>
+                <td>5/15/2019</td>
+                <td><img src="https://via.placeholder.com/50?text=Garlic" alt="Boy Bawang Garlic" class="product-img"></td>
+            </tr>
+            <tr>
+                <td>10004</td>
+                <td>Boy Bawang Garlic (pack)</td>
+                <td>150</td>
+                <td></td>
+                <td></td>
+                <td><img src="https://via.placeholder.com/50?text=Garlic+Pack" alt="Boy Bawang Garlic Pack" class="product-img"></td>
+            </tr>
+            <tr>
+                <td>10005</td>
+                <td>Boy Bawang Spicy (pc)</td>
+                <td>4000</td>
+                <td></td>
+                <td>5/16/2019</td>
+                <td><img src="https://via.placeholder.com/50?text=Spicy" alt="Boy Bawang Spicy" class="product-img"></td>
+            </tr>
+            <tr>
+                <td>10006</td>
+                <td>Boy Bawang Spicy (pack)</td>
+                <td>240</td>
+                <td></td>
+                <td></td>
+                <td><img src="https://via.placeholder.com/50?text=Spicy+Pack" alt="Boy Bawang Spicy Pack" class="product-img"></td>
+            </tr>
+            <tr>
+                <td>10007</td>
+                <td>Boy Bawang BBQ (pc)</td>
+                <td>3000</td>
+                <td></td>
+                <td>5/17/2019</td>
+                <td><img src="https://via.placeholder.com/50?text=BBQ" alt="Boy Bawang BBQ" class="product-img"></td>
+            </tr>
+            <tr>
+                <td>10008</td>
+                <td>Boy Bawang BBQ (pack)</td>
+                <td>210</td>
+                <td></td>
+                <td></td>
+                <td><img src="https://via.placeholder.com/50?text=BBQ+Pack" alt="Boy Bawang BBQ Pack" class="product-img"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
