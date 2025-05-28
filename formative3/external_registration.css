@@ -1,4 +1,3 @@
-/* General Styles */
 :root {
   --primary-color: #4361ee;
   --secondary-color: #3f37c9;
@@ -50,7 +49,6 @@ h2 {
   font-weight: 600;
 }
 
-/* Form Styles */
 .form-section {
   margin-bottom: 2rem;
   padding: 1.5rem;
@@ -116,7 +114,6 @@ textarea {
   min-height: 100px;
 }
 
-/* Checkbox Styles */
 .checkbox-group {
   display: flex;
   align-items: center;
@@ -131,7 +128,6 @@ textarea {
   accent-color: var(--primary-color);
 }
 
-/* Button Styles */
 .form-actions {
   text-align: center;
   margin-top: 2rem;
@@ -175,7 +171,6 @@ button {
   color: white;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .container {
     padding: 1.25rem;
@@ -195,12 +190,10 @@ button {
   }
 }
 
-/* Additional Improvements */
 .form-group:focus-within label {
   color: var(--primary-color);
 }
 
-/* Loading state */
 button.loading {
   position: relative;
   color: transparent;
@@ -227,7 +220,6 @@ button.loading::after {
   to { transform: rotate(1turn); }
 }
 
-/* Error message styling */
 .error-message {
   color: var(--danger-color);
   font-size: 0.75rem;
