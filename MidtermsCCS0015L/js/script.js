@@ -64,4 +64,91 @@ function serveNextCustomer() {
     `;
     
     // Remove from queue with animation
-    const queueElement = document.getElementById
+    const queueElement = document.getElementById('queueLine');
+    if (queueElement.firstChild && queueElement.firstChild.classList) {
+        queueElement.firstChild.classList.add('leave-animation');
+    }
+    
+    setTimeout(() => {
+        const servedPerson = queue.shift();
+        updatePositions();
+        showMessage(`Served ${servedPerson.name} with ${servedPerson.model}!`, 'success');
+        viewQueue();
+        
+        // Reset current customer display if queue is empty
+        if (queue.length === 0) {
+            currentCustomer.innerHTML = `
+                <div class="text-center py-4">
+                    <i class="bi bi-person-x" style="font-size: 1.5rem;"></i>
+                    <p>No customer being served</p>
+                </div>
+            `;
+        }
+    }, 500);
+}
+
+function viewQueue(withAnimation = false) {
+    const queueElement = document.getElementById('queueLine');
+    
+    if (queue.length === 0) {
+        queueElement.innerHTML = `
+            <div class="empty-queue text-center py-5">
+                <i class="bi bi-people" style="font-size: 2rem;"></i>
+                <p class="text-muted mt-2">Queue is empty</p>
+            </div>
+        `;
+        return;
+    }
+    
+    queueElement.innerHTML = '';
+    
+    queue.forEach((person, index) => {
+        const personElement = document.createElement('div');
+        personElement.className = 'person-in-line';
+        if (withAnimation && index === queue.length - 1) {
+            personElement.classList.add('join-animation');
+        }
+        
+        personElement.innerHTML = `
+            <div class="person-avatar ${person.color}">
+                <i class="bi bi-person"></i>
+            </div>
+            <div class="person-details">
+                <div class="fw-bold">${person.name}</div>
+                <div class="person-model">${person.model}</div>
+            </div>
+            <div class="person-position">#${index + 1} in line</div>
+        `;
+        
+        queueElement.appendChild(personElement);
+    });
+}
+
+function updatePositions() {
+    queue.forEach((person, index) => {
+        person.position = index + 1;
+    });
+}
+
+function showMessage(text, type) {
+    const messageDiv = document.getElementById('message');
+    messageDiv.innerHTML = `<i class="bi ${getIcon(type)}"></i> ${text}`;
+    messageDiv.className = `alert alert-${type} d-flex align-items-center`;
+    messageDiv.style.display = 'flex';
+    
+    setTimeout(() => {
+        messageDiv.style.display = 'none';
+    }, 3000);
+}
+
+function getIcon(type) {
+    switch(type) {
+        case 'success': return 'bi-check-circle-fill';
+        case 'danger': return 'bi-exclamation-triangle-fill';
+        case 'warning': return 'bi-exclamation-circle-fill';
+        default: return 'bi-info-circle-fill';
+    }
+}
+
+// Initialize view
+viewQueue();

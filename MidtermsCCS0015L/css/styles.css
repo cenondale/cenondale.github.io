@@ -1,14 +1,14 @@
 /* Store and Queue Styles */
 .store-front {
-    background-color: #f8f9fa;
+    background-color: #f5f5f7; /* Light gray background */
     border-radius: 8px;
     padding: 20px;
     position: relative;
 }
 
 .store-sign {
-    background-color: #000;
-    color: white;
+    background-color: #000; /* Black background for the sign */
+    color: #fff; /* White text */
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: bold;
@@ -20,7 +20,7 @@
 }
 
 .store-sign .bi-apple {
-    color: #fff;
+    color: #fff; /* White color for the Apple icon */
     font-size: 1.5rem;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .store-counter {
-    background-color: #e9ecef;
+    background-color: #e1e1e1; /* Light gray for the counter */
     border-radius: 5px;
     padding: 15px;
     margin-top: 20px;
@@ -45,7 +45,7 @@
 .cashier {
     width: 60px;
     height: 60px;
-    background-color: #0d6efd;
+    background-color: #0071e3; /* Blue color for cashier */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -56,33 +56,33 @@
 
 .current-customer {
     flex-grow: 1;
-    background-color: white;
+    background-color: white; /* White background for current customer */
     border-radius: 5px;
     padding: 10px;
     min-height: 100px;
 }
 
 .person-in-line {
-    background-color: white;
+    background-color: white; /* White background for person in line */
     border-radius: 5px;
     padding: 10px 15px;
     display: flex;
     align-items: center;
     gap: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     position: relative;
 }
 
 .person-in-line:hover {
     transform: translateX(5px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .person-avatar {
     width: 40px;
     height: 40px;
-    background-color: #6c757d;
+    background-color: #6c757d; /* Gray for avatar */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -97,7 +97,7 @@
 
 .person-model {
     font-size: 0.8rem;
-    color: #6c757d;
+    color: #6c757d; /* Gray for model text */
 }
 
 .person-position {
@@ -105,7 +105,7 @@
     right: 15px;
     top: 10px;
     font-size: 0.8rem;
-    color: #6c757d;
+    color: #6c757d; /* Gray for position text */
 }
 
 /* Animations */
@@ -128,136 +128,10 @@
 }
 
 .customer-serving {
-    background-color: #d1e7dd;
-    border-left:/* Store and Queue Styles */
-.store-front {
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    padding: 20px;
-    position: relative;
+    background-color: #d1e7dd; /* Light green for serving customer */
+    border-left: 4px solid #198754; /* Green border */
 }
 
-.store-sign {
-    background-color: #000;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 1.2rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
+.empty-queue {
+    color: #6c757d; /* Gray for empty queue text */
 }
-
-.store-sign .bi-apple {
-    color: #fff;
-    font-size: 1.5rem;
-}
-
-.queue-line {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px 0;
-    min-height: 200px;
-}
-
-.store-counter {
-    background-color: #e9ecef;
-    border-radius: 5px;
-    padding: 15px;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.cashier {
-    width: 60px;
-    height: 60px;
-    background-color: #0d6efd;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.5rem;
-}
-
-.current-customer {
-    flex-grow: 1;
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px;
-    min-height: 100px;
-}
-
-.person-in-line {
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px 15px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.person-in-line:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-
-.person-avatar {
-    width: 40px;
-    height: 40px;
-    background-color: #6c757d;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.2rem;
-}
-
-.person-details {
-    flex-grow: 1;
-}
-
-.person-model {
-    font-size: 0.8rem;
-    color: #6c757d;
-}
-
-.person-position {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    font-size: 0.8rem;
-    color: #6c757d;
-}
-
-/* Animations */
-@keyframes joinQueue {
-    from { transform: translateX(-50px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes leaveQueue {
-    from { transform: translateX(0); opacity: 1; }
-    to { transform: translateX(50px); opacity: 0; }
-}
-
-.join-animation {
-    animation: joinQueue 0.5s ease-out;
-}
-
-.leave-animation {
-    animation: leaveQueue 0.5s ease-out;
-}
-
-.customer-serving {
-    background-color: #d1e7dd;
-    border-left:
