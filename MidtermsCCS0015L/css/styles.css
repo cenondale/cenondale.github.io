@@ -1,0 +1,263 @@
+/* Store and Queue Styles */
+.store-front {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+}
+
+.store-sign {
+    background-color: #000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.store-sign .bi-apple {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.queue-line {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 0;
+    min-height: 200px;
+}
+
+.store-counter {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cashier {
+    width: 60px;
+    height: 60px;
+    background-color: #0d6efd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.current-customer {
+    flex-grow: 1;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 100px;
+}
+
+.person-in-line {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.person-in-line:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.person-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #6c757d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.person-details {
+    flex-grow: 1;
+}
+
+.person-model {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.person-position {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* Animations */
+@keyframes joinQueue {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes leaveQueue {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(50px); opacity: 0; }
+}
+
+.join-animation {
+    animation: joinQueue 0.5s ease-out;
+}
+
+.leave-animation {
+    animation: leaveQueue 0.5s ease-out;
+}
+
+.customer-serving {
+    background-color: #d1e7dd;
+    border-left:/* Store and Queue Styles */
+.store-front {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+}
+
+.store-sign {
+    background-color: #000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.store-sign .bi-apple {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.queue-line {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 0;
+    min-height: 200px;
+}
+
+.store-counter {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cashier {
+    width: 60px;
+    height: 60px;
+    background-color: #0d6efd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.current-customer {
+    flex-grow: 1;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    min-height: 100px;
+}
+
+.person-in-line {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.person-in-line:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.person-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #6c757d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.person-details {
+    flex-grow: 1;
+}
+
+.person-model {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.person-position {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* Animations */
+@keyframes joinQueue {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes leaveQueue {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(50px); opacity: 0; }
+}
+
+.join-animation {
+    animation: joinQueue 0.5s ease-out;
+}
+
+.leave-animation {
+    animation: leaveQueue 0.5s ease-out;
+}
+
+.customer-serving {
+    background-color: #d1e7dd;
+    border-left:
