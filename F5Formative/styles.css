@@ -1,29 +1,264 @@
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f8f9fa;
+/* Base Variables */
+:root {
+    --primary-color: #FF7B25; /* Orange */
+    --secondary-color: #333333;
+    --accent-color: #FFD166;
+    --light-bg: #FFF5F0;
+    --text-color: #333;
+    --text-light: #777;
 }
 
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Profile Card */
 .profile-card {
-    border-radius: 10px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Profile Header */
+.profile-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.profile-header::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+}
+
+.display-name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.nickname-badge {
+    background: var(--accent-color);
+    color: var(--secondary-color);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+
+/* Profile Body */
+.profile-body {
+    padding: 2.5rem;
+}
+
+/* Facts Grid */
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 3rem;
+}
+
+.fact-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.8rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--primary-color);
+    transition: all 0.3s ease;
+    position: relative;
     overflow: hidden;
 }
 
-.profile-header {
-    background-color: #007bff;
-    color: white;
-    padding: 20px;
+.fact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
 }
 
-.profile-img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
+.fact-icon {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.fact-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    color: var(--secondary-color);
+}
+
+.fact-content {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+/* Image Placeholders */
+.game-image, 
+.animal-image, 
+.movie-image, 
+.hobby-image {
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    margin-top: 1rem;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.fact-card:hover .game-image,
+.fact-card:hover .animal-image,
+.fact-card:hover .movie-image,
+.fact-card:hover .hobby-image {
+    opacity: 1;
+}
+
+.game-image {
+    background-image: url('assets/roblox-bg.jpg');
+}
+
+.animal-image {
+    background-image: url('assets/dog-bg.jpg');
+}
+
+.movie-image {
+    background-image: url('assets/marvel-bg.jpg');
+}
+
+.hobby-image {
+    background-image: url('assets/billiards-bg.jpg');
+}
+
+.color-sample {
+    height: 20px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+/* Story Section */
+.story-section {
+    background: rgba(255, 123, 37, 0.08);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 3rem;
+    position: relative;
+}
+
+.story-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 5px 0 0 5px;
 }
 
 .section-title {
     font-size: 1.5rem;
-    color: #007bff;
-    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
 }
 
+.section-title i {
+    margin-right: 0.8rem;
+}
 
+/* Photo Gallery */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 2rem 0;
+}
+
+.photo-slot {
+    height: 200px;
+    border-radius: 10px;
+    background-color: #eee;
+    border: 2px dashed #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.photo-slot:hover {
+    border-color: var(--primary-color);
+    background-color: #f5f5f5;
+    transform: translateY(-5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .display-name {
+        font-size: 2rem;
+    }
+    
+    .facts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-header {
+        padding: 1.5rem;
+    }
+    
+    .profile-body {
+        padding: 1.5rem;
+    }
+    
+    .display-name {
+        font-size: 1.8rem;
+    }
+}
