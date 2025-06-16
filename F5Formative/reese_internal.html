@@ -19,6 +19,14 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--light-bg);
             color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
         
         .profile-card {
@@ -27,7 +35,6 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             margin: 20px auto;
-            max-width: 900px;
         }
         
         .profile-header {
@@ -36,6 +43,7 @@
             padding: 2rem;
             position: relative;
             text-align: center;
+            overflow: hidden;
         }
         
         .profile-header::before {
@@ -49,13 +57,25 @@
             border-radius: 50%;
         }
         
-        .section-title {
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--primary-color);
-            padding-bottom: 0.5rem;
+        .display-5 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .nickname-badge {
+            background: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 700;
             display: inline-block;
-            margin: 1.5rem 0 1rem;
-            font-weight: 600;
+            margin-bottom: 0.8rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .profile-body {
+            padding: 2rem;
         }
         
         .fact-container {
@@ -71,11 +91,12 @@
             padding: 1.5rem;
             box-shadow: 0 3px 10px rgba(0,0,0,0.08);
             border-left: 4px solid var(--primary-color);
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
         }
         
         .fact-box:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .fact-icon {
@@ -87,6 +108,7 @@
         .fact-title {
             font-weight: 600;
             margin-bottom: 0.5rem;
+            color: var(--secondary-color);
         }
         
         .story-section {
@@ -94,44 +116,57 @@
             border-radius: 10px;
             padding: 1.5rem;
             margin: 2rem 0;
+            position: relative;
         }
         
-        .nickname-badge {
-            background: var(--accent-color);
-            color: var(--secondary-color);
-            padding: 0.3rem 1rem;
-            border-radius: 50px;
-            font-weight: 600;
+        .story-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 0.5rem;
             display: inline-block;
-            margin-bottom: 0.5rem;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
         }
         
+        /* Photo Gallery Styles */
         .photo-gallery {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
             margin: 2rem 0;
-            flex-wrap: wrap;
-            gap: 15px;
         }
         
-        .photo-slot {
-            flex: 1;
-            min-width: 200px;
+        .memory-photo {
+            width: 100%;
             height: 200px;
-            background-color: #eee;
-            border: 2px dashed #aaa;
+            object-fit: cover;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-            font-size: 1.2rem;
-            transition: all 0.3s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
         
-        .photo-slot:hover {
-            border-color: var(--primary-color);
-            background-color: #f5f5f5;
+        .memory-photo:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Color Sample */
+        .color-sample {
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+            margin-top: 0.5rem;
         }
         
         @media (max-width: 768px) {
@@ -139,22 +174,44 @@
                 grid-template-columns: 1fr;
             }
             
-            .photo-slot {
-                min-width: 100%;
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .display-5 {
+                font-size: 2rem;
+            }
+            
+            .memory-photo {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-header {
+                padding: 1.5rem;
+            }
+            
+            .profile-body {
+                padding: 1.5rem;
+            }
+            
+            .display-5 {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container my-5">
-        <div class="profile-card shadow-lg">
+        <div class="profile-card">
             <header class="profile-header">
                 <h1 class="display-5 fw-bold mb-2">Charisse Calonge</h1>
                 <span class="nickname-badge">Nickname: Reese</span>
                 <p class="mb-0 text-white-50">Grade 8 Classmate</p>
             </header>
             
-            <div class="profile-body p-4 p-lg-5">
+            <div class="profile-body">
                 <div class="fact-container">
                     <div class="fact-box">
                         <div class="fact-icon">
@@ -202,7 +259,7 @@
                         </div>
                         <h3 class="fact-title">Favorite Color</h3>
                         <p>Green</p>
-                        <div style="background-color: #28a745; width: 100%; height: 20px; border-radius: 5px;"></div>
+                        <div class="color-sample"></div>
                     </div>
                     
                     <div class="fact-box">
@@ -214,22 +271,28 @@
                     </div>
                 </div>
                 
-                <!-- Photo Gallery Section -->
-                <div class="photo-gallery">
-                    <div class="photo-slot">
-                        <span>Insert Photo 1</span>
-                    </div>
-                    <div class="photo-slot">
-                        <span>Insert Photo 2</span>
-                    </div>
-                    <div class="photo-slot">
-                        <span>Insert Photo 3</span>
+                <!-- Memory Photos Section -->
+                <div class="photo-section">
+                    <h3 class="section-title"><i class="fas fa-images"></i> Our Memories</h3>
+                    <div class="photo-gallery">
+                        <!-- Replace these with your actual image paths -->
+                        <img src="assets/9df275d7-8be6-44f1-9f8b-e0b7ccda9eca.jpg" 
+                             alt="Friends at school" class="memory-photo">
+                        <img src="assets/760b4c94-fdb6-4c7a-a17f-5cc18d288e24.jpg" 
+                             alt="Hanging out" class="memory-photo">
+                        <img src="assets/83421389-0988-4ec9-8a25-1d26e0602c4e.jpg" 
+                             alt="Fun times" class="memory-photo">
                     </div>
                 </div>
                 
+                <!-- Story Section -->
                 <div class="story-section">
-                    <h2 class="section-title"><i class="fas fa-book-open me-2"></i>Our Story</h2>
+                    <h2 class="section-title">
+                        <i class="fas fa-book-open"></i> Our Story
+                    </h2>
                     <p>We were classmates during Grade 8. I never expected for her to become my closest friend especially since she is a girl. However it was different for us two. We never even had a relationship. Until now, she is still in touch with me.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
