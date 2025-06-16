@@ -3,39 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Charrisse Calonge | Friend Profile</title>
+    <title>Charisse Calonge | Friend Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Internal CSS Styles */
+        :root {
+            --primary-color: #28a745; /* Green */
+            --secondary-color: #333;
+            --accent-color: #8bc34a;
+            --light-bg: #f1f8e9;
+        }
+        
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            color: #333;
         }
-
+        
         .profile-card {
-            border-radius: 10px;
+            background: white;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
-            margin: 20px;
-            padding: 20px;
-            background-color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 900px;
         }
-
+        
         .profile-header {
-            background-color: #28a745;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
-            padding: 20px;
+            padding: 2rem;
+            position: relative;
+            text-align: center;
         }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
+        
+        .profile-header::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
             border-radius: 50%;
         }
-
+        
         .section-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        .fact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .fact-box {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s;
+        }
+        
+        .fact-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .fact-icon {
+            color: var(--primary-color);
             font-size: 1.5rem;
-            color: #28a745;
-            margin-bottom: 10px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .fact-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .story-section {
+            background: rgba(40, 167, 69, 0.08);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .nickname-badge {
+            background: var(--accent-color);
+            color: var(--secondary-color);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .photo-gallery {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .photo-slot {
+            flex: 1;
+            min-width: 200px;
+            height: 200px;
+            background-color: #eee;
+            border: 2px dashed #aaa;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .photo-slot:hover {
+            border-color: var(--primary-color);
+            background-color: #f5f5f5;
+        }
+        
+        @media (max-width: 768px) {
+            .fact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .photo-slot {
+                min-width: 100%;
+            }
         }
     </style>
 </head>
@@ -43,40 +149,92 @@
     <div class="container my-5">
         <div class="profile-card shadow-lg">
             <header class="profile-header">
-                <div class="row align-items-center">
-                    <div class="col-md-8">
-                        <h1 class="display-4 fw-bold mb-3"> Charisse Calonge</h1>
-                        <p class="lead mb-4">Nickname: Reese</p>
+                <h1 class="display-5 fw-bold mb-2">Charisse Calonge</h1>
+                <span class="nickname-badge">Nickname: Reese</span>
+                <p class="mb-0 text-white-50">Grade 8 Classmate</p>
+            </header>
+            
+            <div class="profile-body p-4 p-lg-5">
+                <div class="fact-container">
+                    <div class="fact-box">
+                        <div class="fact-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3 class="fact-title">Favorite Game</h3>
+                        <p>The Mimic</p>
                     </div>
-                    <div class="col-md-4 text-md-end">
-                        <img src="assets/IMG_8231.jpeg" alt="Profile Photo" class="profile-img rounded-circle">
+                    
+                    <div class="fact-box">
+                        <div class="fact-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <h3 class="fact-title">Favorite Movie</h3>
+                        <p>Mamma Mia! The Movie</p>
+                    </div>
+                    
+                    <div class="fact-box">
+                        <div class="fact-icon">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <h3 class="fact-title">Favorite Series</h3>
+                        <p>Modern Family</p>
+                    </div>
+                    
+                    <div class="fact-box">
+                        <div class="fact-icon">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                        <h3 class="fact-title">Favorite Animal</h3>
+                        <p>Dog</p>
+                    </div>
+                    
+                    <div class="fact-box">
+                        <div class="fact-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3 class="fact-title">Favorite Song</h3>
+                        <p>Sienna - The Marias</p>
+                    </div>
+                    
+                    <div class="fact-box">
+                        <div class="fact-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 class="fact-title">Favorite Color</h3>
+                        <p>Green</p>
+                        <div style="background-color: #28a745; width: 100%; height: 20px; border-radius: 5px;"></div>
+                    </div>
+                    
+                    <div class="fact-box">
+                        <div class="fact-icon">
+                            <i class="fas fa-umbrella-beach"></i>
+                        </div>
+                        <h3 class="fact-title">Favorite Hobby</h3>
+                        <p>Amusement Rides</p>
                     </div>
                 </div>
-            </header>
-            <div class="profile-body p-4 p-lg-5">
-                <section class="mb-5">
-                    <h2 class="section-title"><i class="fas fa-heart me-2"></i>Favorite Game</h2>
-                    <p>The Mimic</p>
-                    <h2 class="section-title"><i class="fas fa-heart me-2"></i>Favorite Movie</h2>
-                    <p>Mamma Mia! The Movie</p>
-                      <h2 class="section-title"><i class="fas fa-heart me-2"></i>Favorite Series</h2>
-                    <p>Modern Family</p>
-                      <h2 class="section-title"><i class="fas fa-heart me-2"></i>Favorite Animal</h2>
-                    <p> Dog </p>
-                    <h2 class="section-title"><i class="fas fa-heart me-2"></i>Favorite Song</h2>
-                    <p> Sienna - The Marias </p>
-                    <h2 class="section-title"><i class="fas fa-heart me-2"></i>Favorite Color</h2>
-                    <p> Green </p>
-                    <h2 class="section-title"><i class="fas fa-heart me-2"></i>Favorite Hobby</h2>
-                    <p> Amusement Rides </p>
-                </section>
-                <section class="mb-5">
-                    <h2 class="section-title"><i class="fas fa-book me-2"></i>Story</h2>
-                    <p>We were classmates during Grade 8. I never expected for her to become my closest friend especially since she is a girl. However it was different for us two. We never even had a relationship. Until now, she is still intouched with me.</p>
-                </section>
+                
+                <!-- Photo Gallery Section -->
+                <div class="photo-gallery">
+                    <div class="photo-slot">
+                        <span>Insert Photo 1</span>
+                    </div>
+                    <div class="photo-slot">
+                        <span>Insert Photo 2</span>
+                    </div>
+                    <div class="photo-slot">
+                        <span>Insert Photo 3</span>
+                    </div>
+                </div>
+                
+                <div class="story-section">
+                    <h2 class="section-title"><i class="fas fa-book-open me-2"></i>Our Story</h2>
+                    <p>We were classmates during Grade 8. I never expected for her to become my closest friend especially since she is a girl. However it was different for us two. We never even had a relationship. Until now, she is still in touch with me.</p>
+                </div>
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
