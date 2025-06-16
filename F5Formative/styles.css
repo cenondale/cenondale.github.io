@@ -1,0 +1,29 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8f9fa;
+}
+
+.profile-card {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.profile-header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+
