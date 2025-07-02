@@ -1,310 +1,607 @@
-/* General Styles */
+/* Modern Pokémon GO Webstore CSS */
 :root {
-    --primary-color: #3B5CA8;
-    --secondary-color: #FFCB05;
-    --danger-color: #E3350D;
-    --light-color: #F5F5F5;
-    --dark-color: #212121;
+  --primary-blue: #2c5aa0;
+  --primary-yellow: #ffcb05;
+  --primary-red: #e3350d;
+  --secondary-blue: #3b7cb7;
+  --secondary-yellow: #f7d117;
+  --dark-blue: #1a3e72;
+  --light-gray: #f8f9fa;
+  --dark-gray: #2d3748;
+  --pokeball-red: #ff0000;
+  --pokeball-black: #222224;
 }
 
+/* Base Styles with Pokémon Theme */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--dark-color);
-    background-color: #f8f9fa;
+  font-family: 'Lato', 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+  color: var(--dark-gray);
+  line-height: 1.6;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(255,203,5,0.05) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(59,92,168,0.05) 0%, transparent 20%);
 }
 
-/* Navigation */
+/* Animated Pokéball Loader (for potential loading states) */
+@keyframes spin-and-bounce {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.pokeball-loader {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(
+    to bottom,
+    var(--pokeball-red) 0% 45%,
+    var(--pokeball-black) 45% 50%,
+    white 50% 100%
+  );
+  border-radius: 50%;
+  border: 3px solid var(--pokeball-black);
+  position: relative;
+  animation: spin-and-bounce 1s infinite ease-in-out;
+}
+
+.pokeball-loader:before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 3px solid var(--pokeball-black);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+/* Enhanced Navigation */
 .navbar {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+  box-shadow: 0 4px 12px rgba(26, 62, 114, 0.2);
+  padding: 0.8rem 0;
+  border-bottom: 3px solid var(--primary-yellow);
 }
 
 .navbar-brand img {
-    transition: transform 0.3s;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 
 .navbar-brand:hover img {
-    transform: scale(1.05);
+  transform: scale(1.1) rotate(-5deg);
 }
 
-/* Hero Section */
+.nav-link {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.25rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:not(.active):hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  background: var(--primary-yellow);
+  color: var(--dark-blue) !important;
+  font-weight: 700;
+  box-shadow: 0 4px 8px rgba(255, 203, 5, 0.3);
+}
+
+/* Hero Section with Animated Background */
 .hero-section {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 4rem 0;
-    background-image: url('../images/pokeball-pattern.png');
-    background-size: 200px;
-    background-blend-mode: overlay;
+  background: linear-gradient(135deg, rgba(44,90,160,0.9) 0%, rgba(26,62,114,0.95) 100%),
+              url('../images/pokemon-pattern.png');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  color: white;
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section:before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,203,5,0.1) 0%, transparent 70%);
+  animation: rotate-bg 30s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotate-bg {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-section h1 {
-    font-weight: 700;
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+  font-weight: 900;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  background: linear-gradient(to right, var(--primary-yellow), #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.2;
 }
 
 .hero-section .lead {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .hero-section .btn {
-    padding: 0.75rem 2rem;
-    font-size: 1.25rem;
-    border-radius: 50px;
+  padding: 0.8rem 2.5rem;
+  font-size: 1.25rem;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 15px rgba(227, 53, 13, 0.3);
+  background: linear-gradient(to right, var(--primary-red), #f06d54);
+  border: none;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Product Cards */
+.hero-section .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(227, 53, 13, 0.4);
+}
+
+.hero-section .btn:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.hero-section .btn:hover:after {
+  transform: translateX(100%);
+}
+
+/* Modern Product Cards with 3D Effect */
 .product-card {
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  background: white;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(59, 92, 168, 0.2);
+}
+
+.product-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-blue), var(--primary-yellow));
 }
 
 .product-card .card-img-top {
-    padding: 1.5rem;
-    height: 180px;
-    object-fit: contain;
+  padding: 2rem;
+  height: 200px;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+  background: linear-gradient(to bottom, #f8f9fa, white);
+}
+
+.product-card:hover .card-img-top {
+  transform: scale(1.1);
+}
+
+.product-card .card-body {
+  padding: 1.5rem;
+  background: white;
+  position: relative;
+  z-index: 1;
+}
+
+.product-card .card-title {
+  font-weight: 700;
+  color: var(--dark-blue);
+  margin-bottom: 0.5rem;
+}
+
+.product-card .card-text {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-bottom: 1.25rem;
 }
 
 .product-card .price {
-    font-weight: bold;
-    font-size: 1.25rem;
-    color: var(--primary-color);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--primary-blue);
+  position: relative;
+  display: inline-block;
+}
+
+.product-card .price:after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-yellow), transparent);
+  border-radius: 3px;
 }
 
 .product-card .add-to-cart {
-    border-radius: 50px;
-    padding: 0.5rem 1rem;
+  border-radius: 50px;
+  padding: 0.6rem 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(59, 92, 168, 0.2);
 }
 
-/* Event Cards */
+.product-card .add-to-cart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(59, 92, 168, 0.3);
+}
+
+/* Badges with Pokéball Theme */
+.badge {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 0.35em 0.65em;
+}
+
+.badge.bg-danger {
+  background: linear-gradient(to right, var(--primary-red), #f06d54) !important;
+}
+
+.badge.bg-success {
+  background: linear-gradient(to right, #10b981, #34d399) !important;
+}
+
+.badge.bg-warning {
+  background: linear-gradient(to right, var(--primary-yellow), #fcd34d) !important;
+  color: var(--dark-blue) !important;
+}
+
+/* Event Cards with Parallax Effect */
 .event-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  height: 280px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+.event-card:hover {
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .event-card img {
-    transition: transform 0.5s;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 5s ease;
 }
 
 .event-card:hover img {
-    transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .event-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    color: white;
-    padding: 2rem 1.5rem 1.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(26,62,114,0.9), transparent);
+  color: white;
+  padding: 2rem 1.5rem;
 }
 
 .event-info h3 {
-    font-weight: 700;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--primary-yellow);
 }
 
-/* Login/Register Forms */
-.card {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+.event-info p {
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-.card-header {
-    border-radius: 10px 10px 0 0 !important;
+.event-info .btn {
+  border: 2px solid var(--primary-yellow);
+  color: var(--primary-yellow);
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 0.4rem 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.event-info .btn:hover {
+  background: var(--primary-yellow);
+  color: var(--dark-blue);
+}
+
+/* Modern Forms with Floating Labels */
+.form-floating label {
+  color: #6b7280;
+  font-weight: 500;
 }
 
 .form-control {
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    border: 1px solid #ced4da;
+  border-radius: 8px;
+  padding: 1rem 1rem;
+  border: 2px solid #e5e7eb;
+  transition: all 0.3s ease;
 }
 
 .form-control:focus {
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 0 0.25rem rgba(255, 203, 5, 0.25);
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 0.25rem rgba(59, 92, 168, 0.2);
 }
 
-.btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+.form-select {
+  border-radius: 8px;
+  padding: 1rem;
+  border: 2px solid #e5e7eb;
 }
 
-.btn-primary:hover {
-    background-color: #2c4a8a;
-    border-color: #2c4a8a;
-}
-
-.btn-outline-primary {
-    color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.btn-outline-primary:hover {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-/* Password Strength Indicator */
+/* Password Strength Meter */
 .password-strength .progress {
-    background-color: #e9ecef;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #e5e7eb;
 }
 
 .password-strength .progress-bar {
-    transition: width 0.5s ease;
+  transition: width 0.5s ease, background-color 0.5s ease;
 }
 
-/* Footer */
-footer {
-    background-color: var(--dark-color);
-    color: white;
-}
-
-footer a {
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-footer a:hover {
-    color: var(--secondary-color) !important;
-}
-
-.social-icons a {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    transition: background-color 0.3s;
-}
-
-.social-icons a:hover {
-    background-color: var(--secondary-color);
-    color: var(--dark-color) !important;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .hero-section {
-        text-align: center;
-        padding: 3rem 0;
-    }
-    
-    .hero-section h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-section .lead {
-        font-size: 1.25rem;
-    }
-    
-    .product-card {
-        margin-bottom: 1.5rem;
-    }
-}
-
-/* Animation */
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
-}
-
-.bounce {
-    animation: bounce 1s;
-}
-
-/* Cart Badge */
-.badge.bg-danger {
-    font-size: 0.6rem;
-    padding: 0.25em 0.4em;
-}
-
-/* Team Cards */
+/* Team Section with Hover Effects */
 .team-card {
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  background: white;
 }
 
 .team-card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(59, 92, 168, 0.2);
 }
 
 .team-card img {
-    height: 250px;
-    object-fit: cover;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-/* Filter Sidebar */
-.list-group-item.active {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+.team-card:hover img {
+  transform: scale(1.05);
 }
 
-.form-range::-webkit-slider-thumb {
-    background: var(--primary-color);
+.team-card .card-body {
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
-.form-range::-moz-range-thumb {
-    background: var(--primary-color);
+.team-card .card-title {
+  font-weight: 700;
+  color: var(--dark-blue);
+  margin-bottom: 0.25rem;
 }
 
-.form-range::-ms-thumb {
-    background: var(--primary-color);
+.team-card .card-text {
+  color: #6b7280;
+  font-size: 0.9rem;
 }
 
-/* Add to Cart Button Animation */
-.add-to-cart {
-    position: relative;
-    overflow: hidden;
+/* Footer with Wave Design */
+footer {
+  background: linear-gradient(135deg, var(--dark-blue) 0%, #12294d 100%);
+  color: white;
+  position: relative;
+  padding-top: 4rem;
+  margin-top: 4rem;
 }
 
-.add-to-cart:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 5px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.5);
-    opacity: 0;
-    border-radius: 100%;
-    transform: scale(1, 1) translate(-50%);
-    transform-origin: 50% 50%;
+footer:before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' fill='%23f5f7fa' opacity='.25'/%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' fill='%23f5f7fa' opacity='.5'/%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23f5f7fa'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.add-to-cart:focus:not(:active)::after {
-    animation: ripple 1s ease-out;
+footer h5 {
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--primary-yellow);
 }
 
-@keyframes ripple {
-    0% {
-        transform: scale(0, 0);
-        opacity: 0.5;
-    }
-    100% {
-        transform: scale(20, 20);
-        opacity: 0;
-    }
+footer ul li {
+  margin-bottom: 0.5rem;
 }
+
+footer a {
+  color: #e5e7eb;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+footer a:hover {
+  color: var(--primary-yellow);
+  padding-left: 5px;
+}
+
+footer a:before {
+  content: '→';
+  position: absolute;
+  left: -15px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+footer a:hover:before {
+  opacity: 1;
+  left: -10px;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  margin-right: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: var(--primary-yellow);
+  color: var(--dark-blue);
+  transform: translateY(-3px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .hero-section h1 {
+    font-size: 2.75rem;
+  }
+  
+  .hero-section .lead {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    text-align: center;
+    padding: 3rem 0;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .navbar-brand img {
+    height: 35px;
+  }
+  
+  .team-card img {
+    height: 220px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-section .btn {
+    width: 100%;
+  }
+  
+  .event-card {
+    height: 220px;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Type Badges (for potential Pokémon type indicators) */
+.type-badge {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.type-normal { background: #a8a878; }
+.type-fire { background: #f08030; }
+.type-water { background: #6890f0; }
+.type-electric { background: #f8d030; }
+.type-grass { background: #78c850; }
+.type-ice { background: #98d8d8; }
+.type-fighting { background: #c03028; }
+.type-poison { background: #a040a0; }
+.type-ground { background: #e0c068; }
+.type-flying { background: #a890f0; }
+.type-psychic { background: #f85888; }
+.type-bug { background: #a8b820; }
+.type-rock { background: #b8a038; }
+.type-ghost { background: #705898; }
+.type-dragon { background: #7038f8; }
+.type-dark { background: #705848; }
+.type-steel { background: #b8b8d0; }
+.type-fairy { background: #ee99ac; }
