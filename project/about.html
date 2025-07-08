@@ -11,10 +11,10 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark pokemon-navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/images/pokemon-go-logo.png" alt="Pokémon GO" height="40">
+                <img src="assets/images/pokemon-go-logo-white.png" alt="Pokémon GO" height="40">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -33,18 +33,18 @@
                 </ul>
                 <div class="d-flex">
                     <a href="login.html" class="btn btn-outline-light me-2">Login</a>
-                    <a href="register.html" class="btn btn-primary">Sign Up</a>
+                    <a href="register.html" class="btn pokemon-btn-primary">Sign Up</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- About Section -->
-    <section class="about-section py-5">
+    <section class="pokemon-about-section py-5">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-6">
-                    <h1>About Pokémon GO Webstore</h1>
+                    <h1 class="pokemon-text-blue">About Pokémon GO Webstore</h1>
                     <p class="lead">The official destination for Pokémon GO in-game items and premium content.</p>
                 </div>
                 <div class="col-lg-6">
@@ -54,22 +54,24 @@
             
             <div class="row mb-5">
                 <div class="col-12">
-                    <h2 class="mb-4">Our Mission</h2>
-                    <p>Pokémon GO Webstore is dedicated to providing Trainers worldwide with easy access to premium in-game items that enhance their Pokémon GO experience. Our mission is to make the shopping process seamless, secure, and enjoyable while supporting the global Pokémon GO community.</p>
-                    <p>Since our launch in 2016 alongside Pokémon GO, we've helped millions of Trainers acquire the items they need to catch, battle, and explore the world of Pokémon.</p>
+                    <div class="pokemon-card p-4 mb-4">
+                        <h2 class="mb-4 pokemon-text-blue">Our Mission</h2>
+                        <p>Pokémon GO Webstore is dedicated to providing Trainers worldwide with easy access to premium in-game items that enhance their Pokémon GO experience. Our mission is to make the shopping process seamless, secure, and enjoyable while supporting the global Pokémon GO community.</p>
+                        <p>Since our launch in 2016 alongside Pokémon GO, we've helped millions of Trainers acquire the items they need to catch, battle, and explore the world of Pokémon.</p>
+                    </div>
                 </div>
             </div>
             
             <div class="row mb-5">
                 <div class="col-12">
-                    <h2 class="mb-4">Meet Our Team</h2>
-                    <p>Our team of Pokémon enthusiasts and e-commerce experts work tirelessly to ensure you have the best shopping experience possible.</p>
+                    <h2 class="mb-4 pokemon-text-blue text-center">Meet Our Team</h2>
+                    <p class="text-center mb-5">Our team of Pokémon enthusiasts and e-commerce experts work tirelessly to ensure you have the best shopping experience possible.</p>
                 </div>
             </div>
             
             <div class="row mb-5">
                 <div class="col-md-4 mb-4">
-                    <div class="card team-card h-100">
+                    <div class="pokemon-card h-100">
                         <img src="assets/images/team-member1.jpg" class="card-img-top" alt="Team Member">
                         <div class="card-body">
                             <h5 class="card-title">Ash Ketchum</h5>
@@ -79,7 +81,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <div class="card team-card h-100">
+                    <div class="pokemon-card h-100">
                         <img src="assets/images/team-member2.jpg" class="card-img-top" alt="Team Member">
                         <div class="card-body">
                             <h5 class="card-title">Misty Williams</h5>
@@ -89,7 +91,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <div class="card team-card h-100">
+                    <div class="pokemon-card h-100">
                         <img src="assets/images/team-member3.jpg" class="card-img-top" alt="Team Member">
                         <div class="card-body">
                             <h5 class="card-title">Brock Harrison</h5>
@@ -102,11 +104,13 @@
             
             <div class="row">
                 <div class="col-12">
-                    <h2 class="mb-4">Our Partners</h2>
-                    <p>Pokémon GO Webstore operates in partnership with Niantic, Inc. and The Pokémon Company International to provide official in-game items for Pokémon GO players worldwide.</p>
-                    <div class="d-flex flex-wrap gap-4 align-items-center mt-4">
-                        <img src="assets/images/niantic-logo.png" alt="Niantic" height="50">
-                        <img src="assets/images/pokemon-company-logo.png" alt="The Pokémon Company" height="50">
+                    <div class="pokemon-card p-4">
+                        <h2 class="mb-4 pokemon-text-blue">Our Partners</h2>
+                        <p>Pokémon GO Webstore operates in partnership with Niantic, Inc. and The Pokémon Company International to provide official in-game items for Pokémon GO players worldwide.</p>
+                        <div class="d-flex flex-wrap gap-4 align-items-center mt-4">
+                            <img src="assets/images/niantic-logo.png" alt="Niantic" height="50">
+                            <img src="assets/images/pokemon-company-logo.png" alt="The Pokémon Company" height="50">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -114,37 +118,37 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
+    <footer class="pokemon-footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <img src="assets/images/pokemon-go-logo.png" alt="Pokémon GO" height="40">
+                    <img src="assets/images/pokemon-go-logo-white.png" alt="Pokémon GO" height="40">
                     <p class="mt-2">The official webstore for Pokémon GO in-game items.</p>
                 </div>
                 <div class="col-md-2 mb-3">
                     <h5>Shop</h5>
                     <ul class="list-unstyled">
-                        <li><a href="products.html" class="text-white">All Items</a></li>
-                        <li><a href="#" class="text-white">New Releases</a></li>
-                        <li><a href="#" class="text-white">Bundles</a></li>
-                        <li><a href="#" class="text-white">Special Deals</a></li>
+                        <li><a href="products.html">All Items</a></li>
+                        <li><a href="#">New Releases</a></li>
+                        <li><a href="#">Bundles</a></li>
+                        <li><a href="#">Special Deals</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2 mb-3">
                     <h5>Support</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Help Center</a></li>
-                        <li><a href="#" class="text-white">Contact Us</a></li>
-                        <li><a href="#" class="text-white">FAQs</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-3">
                     <h5>Connect With Us</h5>
-                    <div class="social-icons">
-                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-youtube"></i></a>
+                    <div class="pokemon-social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                     <p class="mt-2">© 2023 Pokémon GO. All rights reserved.</p>
                 </div>

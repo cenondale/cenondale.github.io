@@ -11,10 +11,10 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark pokemon-navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/images/pokemon-go-logo.png" alt="Pokémon GO" height="40">
+                <img src="assets/images/pokemon-go-logo-white.png" alt="Pokémon GO" height="40">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -32,20 +32,23 @@
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <a href="login.html" class="btn btn-outline-light">Login</a>
+                    <a href="login.html" class="btn btn-outline-light me-2">Login</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Registration Form -->
-    <section class="register-section py-5">
+    <section class="pokemon-auth-section py-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6">
-                    <div class="card shadow">
+                    <div class="pokemon-card shadow">
                         <div class="card-body p-4">
-                            <h2 class="text-center mb-4">Create Your Account</h2>
+                            <div class="text-center mb-4">
+                                <img src="assets/icons/pokeball-icon.png" alt="Pokéball" height="60" class="mb-3">
+                                <h2>Create Your Trainer Account</h2>
+                            </div>
                             <form id="registrationForm">
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
@@ -98,7 +101,7 @@
                                 
                                 <div class="mb-3">
                                     <label for="pokemonGoCode" class="form-label">Pokémon GO Account Code*</label>
-                                    <input type="text" class="form-control" id="pokemonGoCode" required>
+                                    <input type="text" class="form-control" id="pokemonGoCode" placeholder="1234 5678 9012" required>
                                     <div class="form-text">Your 12-digit Trainer Code</div>
                                 </div>
                                 
@@ -112,7 +115,7 @@
                                     <label class="form-check-label" for="newsletter">Subscribe to our newsletter</label>
                                 </div>
                                 
-                                <button type="submit" class="btn btn-primary w-100">Create Account</button>
+                                <button type="submit" class="btn pokemon-btn-primary w-100">Create Account</button>
                             </form>
                             <hr class="my-4">
                             <div class="text-center">
@@ -126,37 +129,37 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
+    <footer class="pokemon-footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <img src="assets/images/pokemon-go-logo.png" alt="Pokémon GO" height="40">
+                    <img src="assets/images/pokemon-go-logo-white.png" alt="Pokémon GO" height="40">
                     <p class="mt-2">The official webstore for Pokémon GO in-game items.</p>
                 </div>
                 <div class="col-md-2 mb-3">
                     <h5>Shop</h5>
                     <ul class="list-unstyled">
-                        <li><a href="products.html" class="text-white">All Items</a></li>
-                        <li><a href="#" class="text-white">New Releases</a></li>
-                        <li><a href="#" class="text-white">Bundles</a></li>
-                        <li><a href="#" class="text-white">Special Deals</a></li>
+                        <li><a href="products.html">All Items</a></li>
+                        <li><a href="#">New Releases</a></li>
+                        <li><a href="#">Bundles</a></li>
+                        <li><a href="#">Special Deals</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2 mb-3">
                     <h5>Support</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Help Center</a></li>
-                        <li><a href="#" class="text-white">Contact Us</a></li>
-                        <li><a href="#" class="text-white">FAQs</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-3">
                     <h5>Connect With Us</h5>
-                    <div class="social-icons">
-                        <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white me-2"><i class="fab fa-youtube"></i></a>
+                    <div class="pokemon-social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                     <p class="mt-2">© 2023 Pokémon GO. All rights reserved.</p>
                 </div>
