@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Always show 3 items in cart count
+    // Always show 5 items in cart count
     updateCartCount();
     
     // Calculate and display static totals
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function updateCartCount() {
     const cartCountElements = document.querySelectorAll('#cartCount');
     cartCountElements.forEach(element => {
-        element.textContent = '3'; // Always show 3 items
+        element.textContent = '5'; // Always show 5 items
     });
     
     // Always enable checkout button
