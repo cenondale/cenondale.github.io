@@ -351,3 +351,25 @@
 hr {
     border-color: rgba(255,255,255,0.1);
 }
+
+/* Cart item images */
+.cart-table img {
+    border-radius: 10px;
+    background: #f8f9fa;
+    padding: 5px;
+}
+
+/* Disable quantity input styling */
+.cart-table .input-group {
+    pointer-events: none;
+}
+
+.cart-table .input-group .btn {
+    display: none;
+}
+
+.cart-table .quantity-input {
+    border: none;
+    background: transparent;
+    text-align: center;
+}

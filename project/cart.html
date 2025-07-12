@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="assets/pokeball.png">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark pokemon-navbar">
@@ -34,7 +36,8 @@
                 <div class="d-flex align-items-center">
                     <a href="cart.html" class="btn btn-outline-light position-relative me-2">
                         <i class="fas fa-shopping-cart"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            id="cartCount">
                             0
                         </span>
                     </a>
@@ -55,7 +58,7 @@
                     <h1 class="pokemon-text-blue">Your Shopping Cart</h1>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-8">
                     <div class="pokemon-card mb-4">
@@ -72,16 +75,50 @@
                                         </tr>
                                     </thead>
                                     <tbody id="cartItems">
-                                        <!-- Cart items will be dynamically inserted here -->
-                                        <tr class="empty-cart">
-                                            <td colspan="5" class="text-center py-4">Your cart is empty</td>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="assets/pokecoin100.png" alt="100 PokéCoins" width="60"
+                                                        class="me-3">
+                                                    <span>100 PokéCoins</span>
+                                                </div>
+                                            </td>
+                                            <td>$0.99</td>
+                                            <td>1</td>
+                                            <td>$0.99</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="assets/incense.png" alt="Incense" width="60" class="me-3">
+                                                    <span>Incense</span>
+                                                </div>
+                                            </td>
+                                            <td>$0.99</td>
+                                            <td>1</td>
+                                            <td>$0.99</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="assets/lucky-egg.png" alt="Lucky Egg" width="60"
+                                                        class="me-3">
+                                                    <span>Lucky Egg</span>
+                                                </div>
+                                            </td>
+                                            <td>$0.99</td>
+                                            <td>1</td>
+                                            <td>$0.99</td>
+                                            <td></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="pokemon-card">
                         <div class="card-body">
                             <h5 class="card-title">Special Offer</h5>
@@ -90,7 +127,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4">
                     <div class="pokemon-card mb-4">
                         <div class="card-body">
@@ -112,10 +149,11 @@
                                 <span>Total</span>
                                 <span id="total">$0.00</span>
                             </div>
-                            <a href="payment.html" class="btn pokemon-btn-primary w-100 mt-3" id="checkoutBtn" disabled>Proceed to Checkout</a>
+                            <a href="payment.html" class="btn pokemon-btn-primary w-100 mt-3" id="checkoutBtn"
+                                disabled>Proceed to Checkout</a>
                         </div>
                     </div>
-                    
+
                     <div class="pokemon-card">
                         <div class="card-body">
                             <h5 class="card-title mb-3">Secure Payment</h5>
@@ -176,4 +214,5 @@
     <script src="js/cart.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
