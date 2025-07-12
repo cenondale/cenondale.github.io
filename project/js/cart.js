@@ -20,7 +20,7 @@ function updateCartCount() {
 }
 
 function calculateStaticTotals() {
-    const subtotal = 2.97; // $0.99 x 3 items
+    const subtotal = 6.95; // $0.99 x 3 items + $1.99 x 2 items
     const tax = subtotal * 0.1; // 10% tax
     const total = subtotal + tax;
     
