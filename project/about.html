@@ -5,10 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Pokémon GO Webstore</title>
     <link rel="stylesheet" href="bootstrap-5.3.6-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="assets/pokeball.png">
 </head>
 <body>
+    <!-- News Ticker -->
+    <div class="pokemon-news-ticker">
+        <div class="container">
+            <div class="pokemon-news-content">
+                <span class="badge">NEW</span>
+                <span>Community Day Special: Get 50% off all Incubators this weekend!</span>
+                <span class="badge">SALE</span>
+                <span>New Ultra Box available now with 20 Premium Raid Passes!</span>
+                <span class="badge">EVENT</span>
+                <span>Festival of Colors event starts tomorrow - special boxes available!</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark pokemon-navbar">
         <div class="container">
@@ -30,9 +45,17 @@
                         <a class="nav-link active" href="about.html">About Us</a>
                     </li>
                 </ul>
-                <br>
-                <div class="d-flex">
-                    <a href="login.html" class="btn btn-outline-light me-2">Login</a>
+                 <div class="d-flex align-items-center">
+                    <a href="cart.html" class="btn btn-outline-light position-relative me-2">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            id="cartCount">
+                            0
+                        </span>
+                    </a>
+                    <div class="account-dropdown">
+                        <a href="login.html" class="btn btn-outline-light me-2">Login</a>
+                    </div>
                     <a href="register.html" class="btn pokemon-btn-primary">Sign Up</a>
                 </div>
             </div>
