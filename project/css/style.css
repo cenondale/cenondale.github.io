@@ -288,7 +288,6 @@
     text-transform: uppercase;
 }
 
-/* Animation classes */
 .animate-pop {
     animation: pop 0.5s ease;
 }
@@ -309,7 +308,6 @@
     100% { transform: translateY(0px); }
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .pokemon-hero h1 {
         font-size: 2rem;
@@ -338,7 +336,6 @@
     }
 }
 
-/* Additional utility classes */
 .account-dropdown {
     position: relative;
     display: inline-block;
@@ -352,14 +349,12 @@ hr {
     border-color: rgba(255,255,255,0.1);
 }
 
-/* Cart item images */
 .cart-table img {
     border-radius: 10px;
     background: #f8f9fa;
     padding: 5px;
 }
 
-/* Disable quantity input styling */
 .cart-table .input-group {
     pointer-events: none;
 }

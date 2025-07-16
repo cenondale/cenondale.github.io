@@ -1,18 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Always show 5 items in cart count
+
     updateCartCount();
-    
-    // Calculate and display static totals
+
     calculateStaticTotals();
 });
 
 function updateCartCount() {
     const cartCountElements = document.querySelectorAll('#cartCount');
     cartCountElements.forEach(element => {
-        element.textContent = '5'; // Always show 5 items
+        element.textContent = '5'; 
     });
     
-    // Always enable checkout button
     const checkoutBtn = document.getElementById('checkoutBtn');
     if (checkoutBtn) {
         checkoutBtn.disabled = false;
@@ -20,8 +18,8 @@ function updateCartCount() {
 }
 
 function calculateStaticTotals() {
-    const subtotal = 6.95; // $0.99 x 3 items + $1.99 x 2 items
-    const tax = subtotal * 0.1; // 10% tax
+    const subtotal = 6.95; 
+    const tax = subtotal * 0.1; 
     const total = subtotal + tax;
     
     document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;

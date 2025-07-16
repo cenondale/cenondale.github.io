@@ -1,11 +1,9 @@
-// Authentication functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize users array in localStorage if it doesn't exist
+    
     if (!localStorage.getItem('users')) {
         localStorage.setItem('users', JSON.stringify([]));
     }
 
-    // Login form submission
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
@@ -14,13 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
             
-            // Validate inputs
             if (!email || !password) {
                 showAlert('Please fill in all fields.', 'danger');
                 return;
             }
 
-            // Check credentials
             const users = JSON.parse(localStorage.getItem('users'));
             const user = users.find(u => u.email === email);
             
@@ -29,13 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // In a real app, you would hash and compare passwords properly
             if (user.password !== password) {
                 showAlert('Incorrect password.', 'danger');
                 return;
             }
 
-            // Login successful
             localStorage.setItem('currentUser', JSON.stringify({
                 email: user.email,
                 firstName: user.firstName,
@@ -49,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Registration form submission
     const registrationForm = document.getElementById('registrationForm');
     if (registrationForm) {
         registrationForm.addEventListener('submit', function(e) {
@@ -63,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const pokemonGoCode = document.getElementById('pokemonGoCode').value.trim();
             const terms = document.getElementById('terms').checked;
 
-            // Validation
             if (!firstName || !lastName || !email || !password || !confirmPassword || !pokemonGoCode) {
                 showAlert('Please fill in all required fields.', 'danger');
                 return;
@@ -94,14 +86,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Check if user already exists
             const users = JSON.parse(localStorage.getItem('users'));
             if (users.some(user => user.email === email)) {
                 showAlert('An account with this email already exists.', 'danger');
                 return;
             }
 
-            // Create new user (in production, password should be hashed)
             const newUser = {
                 firstName,
                 middleName: document.getElementById('middleName').value.trim(),
@@ -109,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 gender: document.getElementById('gender').value,
                 birthday: document.getElementById('birthday').value,
                 email,
-                password, // Note: In production, never store plain text passwords!
+                password, 
                 pokemonGoCode,
                 createdAt: new Date().toISOString()
             };
@@ -117,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
             users.push(newUser);
             localStorage.setItem('users', JSON.stringify(users));
 
-            // Log the user in
             localStorage.setItem('currentUser', JSON.stringify({
                 email: newUser.email,
                 firstName: newUser.firstName,
@@ -131,7 +120,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Check authentication status and update UI
     checkAuthStatus();
 });
 
@@ -142,7 +130,7 @@ function checkAuthStatus() {
     const accountDropdowns = document.querySelectorAll('.account-dropdown');
 
     if (currentUser) {
-        // User is logged in
+
         loginLinks.forEach(link => {
             link.textContent = `${currentUser.firstName || 'My Account'}`;
             link.href = '#';
@@ -154,7 +142,6 @@ function checkAuthStatus() {
             link.style.display = 'none';
         });
 
-        // Create dropdown menu
         accountDropdowns.forEach(dropdown => {
             dropdown.innerHTML = `
                 <ul class="dropdown-menu">
@@ -165,7 +152,6 @@ function checkAuthStatus() {
             `;
         });
 
-        // Add logout functionality
         document.querySelectorAll('#logoutBtn').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -177,7 +163,7 @@ function checkAuthStatus() {
             });
         });
     } else {
-        // User is not logged in
+       
         loginLinks.forEach(link => {
             link.textContent = 'Login';
             link.href = 'login.html';
@@ -197,18 +183,16 @@ function validateEmail(email) {
 }
 
 function showAlert(message, type) {
-    // Remove any existing alerts
+
     const existingAlert = document.querySelector('.auth-alert');
     if (existingAlert) {
         existingAlert.remove();
     }
 
-    // Create alert element
     const alertDiv = document.createElement('div');
     alertDiv.className = `alert alert-${type} auth-alert`;
     alertDiv.textContent = message;
 
-    // Insert alert
     const form = document.querySelector('form');
     if (form) {
         form.insertBefore(alertDiv, form.firstChild);
@@ -216,7 +200,6 @@ function showAlert(message, type) {
         document.body.insertBefore(alertDiv, document.body.firstChild);
     }
 
-    // Auto-remove after 5 seconds
     setTimeout(() => {
         alertDiv.remove();
     }, 5000);
