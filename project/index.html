@@ -44,6 +44,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About Us</a>
                     </li>
+                      </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="redeem.html">Redeem Code</a>
+                    </li>
                 </ul>
                 <div class="d-flex">
                     <a href="cart.html" class="btn btn-outline-light position-relative me-2">
@@ -76,34 +80,7 @@
         </div>
     </section>
 
-    <!-- Featured Countdown -->
-    <section class="py-4">
-        <div class="container">
-            <div class="pokemon-countdown">
-                <h4>SPECIAL OFFER ENDS IN:</h4>
-                <div class="pokemon-countdown-timer">
-                    <div class="pokemon-countdown-item">
-                        <span id="countdown-days">00</span>
-                        <span>Days</span>
-                    </div>
-                    <div class="pokemon-countdown-item">
-                        <span id="countdown-hours">00</span>
-                        <span>Hours</span>
-                    </div>
-                    <div class="pokemon-countdown-item">
-                        <span id="countdown-minutes">00</span>
-                        <span>Minutes</span>
-                    </div>
-                    <div class="pokemon-countdown-item">
-                        <span id="countdown-seconds">00</span>
-                        <span>Seconds</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Products -->
+    <!-- Products -->
     <section class="py-5">
         <div class="container">
             <div class="pokemon-section-title">
@@ -373,28 +350,7 @@
     <script src="js/main.js"></script>
     
     <script>
-        // Countdown timer
-        function updateCountdown() {
-            const now = new Date();
-            const endDate = new Date();
-            endDate.setDate(now.getDate() + 3); // 3 days from now
-            endDate.setHours(23, 59, 59, 0);
-            
-            const diff = endDate - now;
-            
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-        
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+      
         
         // Add to cart animation
         document.querySelectorAll('.add-to-cart').forEach(button => {
