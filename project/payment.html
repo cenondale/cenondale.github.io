@@ -8,6 +8,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="assets/pokeball.png">
+    <style>
+        .card-input {
+            position: relative;
+        }
+        .card-input i {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+        .card-icon {
+            height: 24px;
+            margin-left: 5px;
+        }
+        .payment-method {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .payment-method:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+        .payment-method.active {
+            border-color: #0d6efd !important;
+            background-color: rgba(13, 110, 253, 0.05);
+        }
+    </style>
 </head>
 <body>
     <!-- News Ticker -->
@@ -43,7 +70,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About Us</a>
-                    </li>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="redeem.html">Redeem Code</a>
@@ -85,75 +111,64 @@
                     <div class="pokemon-card mb-4">
                         <div class="card-body">
                             <h5 class="card-title mb-4">Payment Method</h5>
-                            <ul class="nav nav-pills mb-4" id="paymentMethodTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="credit-card-tab" data-bs-toggle="pill" data-bs-target="#credit-card" type="button" role="tab">
-                                        <i class="far fa-credit-card me-2"></i> Credit/Debit Card
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="paypal-tab" data-bs-toggle="pill" data-bs-target="#paypal" type="button" role="tab">
-                                        <i class="fab fa-paypal me-2"></i> PayPal
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="google-pay-tab" data-bs-toggle="pill" data-bs-target="#google-pay" type="button" role="tab">
-                                        <i class="fab fa-google-pay me-2"></i> Google Pay
-                                    </button>
-                                </li>
-                            </ul>
                             
-                            <div class="tab-content" id="paymentMethodTabContent">
-                                <div class="tab-pane fade show active" id="credit-card" role="tabpanel">
+                            <div class="mb-4">
+                                <div class="d-flex gap-3 mb-3">
+                                    <div class="payment-method active w-100 p-3 rounded border" data-method="card">
+                                        <div class="d-flex align-items-center">
+                                            <i class="far fa-credit-card me-2 fs-4"></i>
+                                            <span>Credit/Debit Card</span>
+                                        </div>
+                                    </div>
+                                    <div class="payment-method w-100 p-3 rounded border" data-method="paypal">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fab fa-paypal me-2 fs-4"></i>
+                                            <span>PayPal</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="cardPaymentForm">
                                     <form id="paymentForm">
-                                        <div class="mb-3">
+                                        <div class="mb-3 card-input">
                                             <label for="cardNumber" class="form-label">Card Number</label>
                                             <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                                            <i class="fas fa-credit-card"></i>
                                         </div>
                                         <div class="mb-3">
                                             <label for="cardName" class="form-label">Name on Card</label>
-                                            <input type="text" class="form-control" id="cardName" required>
+                                            <input type="text" class="form-control" id="cardName" placeholder="John Doe" required>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="expiryDate" class="form-label">Expiry Date</label>
                                                 <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" required>
                                             </div>
-                                            <div class="col-md-6 mb-3">
+                                            <div class="col-md-6 mb-3 card-input">
                                                 <label for="cvv" class="form-label">CVV</label>
                                                 <input type="text" class="form-control" id="cvv" placeholder="123" required>
+                                                <i class="fas fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="3-digit code on back of card"></i>
                                             </div>
                                         </div>
-                                        <div class="form-check mb-4">
-                                            <input class="form-check-input" type="checkbox" id="saveCard">
-                                            <label class="form-check-label" for="saveCard">Save this card for future purchases</label>
+                                        <div class="d-flex align-items-center mb-4">
+                                            <img src="assets/Visa.png" alt="Visa" class="card-icon">
+                                            <img src="assets/Mastercard.png" alt="Mastercard" class="card-icon">
+                                            <img src="assets/American Express.png" alt="American Express" class="card-icon">
+                                            <img src="assets/Paypal.png" alt="PayPal" class="card-icon">
                                         </div>
                                     </form>
                                 </div>
                                 
-                                <div class="tab-pane fade" id="paypal" role="tabpanel">
+                                <div id="paypalPaymentForm" style="display: none;">
                                     <div class="text-center py-4">
                                         <p>You will be redirected to PayPal to complete your purchase securely.</p>
-                                        <button class="btn pokemon-btn-primary">
+                                        <button type="button" class="btn pokemon-btn-primary" id="paypalButton">
                                             <i class="fab fa-paypal me-2"></i> Continue with PayPal
                                         </button>
                                     </div>
                                 </div>
-                                
-                                <div class="tab-pane fade" id="google-pay" role="tabpanel">
-                                    <div class="text-center py-4">
-                                        <p>You will be redirected to Google Pay to complete your purchase securely.</p>
-                                        <button class="btn pokemon-btn-primary">
-                                            <i class="fab fa-google-pay me-2"></i> Continue with Google Pay
-                                        </button>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div class="pokemon-card">
-                        <div class="card-body">
+                            
                             <h5 class="card-title mb-4">Billing Address</h5>
                             <div class="mb-3">
                                 <label for="country" class="form-label">Country</label>
@@ -168,23 +183,23 @@
                             </div>
                             <div class="mb-3">
                                 <label for="address" class="form-label">Street Address</label>
-                                <input type="text" class="form-control" id="address" required>
+                                <input type="text" class="form-control" id="address" placeholder="123 Main St" required>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="city" class="form-label">City</label>
-                                    <input type="text" class="form-control" id="city" required>
+                                    <input type="text" class="form-control" id="city" placeholder="New York" required>
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="state" class="form-label">State/Province</label>
-                                    <input type="text" class="form-control" id="state" required>
+                                    <input type="text" class="form-control" id="state" placeholder="NY" required>
                                 </div>
                                 <div class="col-md-3 mb-3">
                                     <label for="zip" class="form-label">ZIP/Postal Code</label>
-                                    <input type="text" class="form-control" id="zip" required>
+                                    <input type="text" class="form-control" id="zip" placeholder="10001" required>
                                 </div>
                             </div>
-                            <div class="form-check">
+                            <div class="form-check mb-4">
                                 <input class="form-check-input" type="checkbox" id="saveAddress">
                                 <label class="form-check-label" for="saveAddress">Save this address for future purchases</label>
                             </div>
@@ -198,8 +213,7 @@
                             <h5 class="card-title mb-3">Order Summary</h5>
                             <div class="border-bottom pb-3 mb-3">
                                 <div id="orderItems">
-                                    <!-- Order items will be dynamically inserted here -->
-                                    <p class="text-muted">No items in cart</p>
+                                    <!-- Order items will be loaded dynamically -->
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between mb-2">
@@ -219,7 +233,7 @@
                                 <input class="form-check-input" type="checkbox" id="termsCheck" required>
                                 <label class="form-check-label" for="termsCheck">I agree to the <a href="#" class="text-decoration-none">Terms of Service</a></label>
                             </div>
-                            <button type="submit" class="btn pokemon-btn-primary w-100" id="completeOrderBtn">Complete Order</button>
+                            <button type="button" class="btn pokemon-btn-primary w-100" id="completeOrderBtn">Complete Order</button>
                         </div>
                     </div>
                     
@@ -246,9 +260,7 @@
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <img src="assets/Pokemon Go.png" alt="Pokémon GO" height="40">
-                    <p class="mt-2">The redesigned webstore for Pokémon GO in-game items. Catch more Pokémon with premium items!
-
-</p>
+                    <p class="mt-2">The redesigned webstore for Pokémon GO in-game items. Catch more Pokémon with premium items!</p>
                 </div>
                 <div class="col-md-2 mb-3">
                     <h5>Shop</h5>
@@ -275,7 +287,7 @@
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
-                    <p class="mt-2">2023 Niantic, Inc. ©2023 Pokémon. ©1995–2023 Nintendo / Creatures Inc. / GAME FREAK inc.  All rights reserved.</p>
+                    <p class="mt-2">2023 Niantic, Inc. ©2023 Pokémon. ©1995–2023 Nintendo / Creatures Inc. / GAME FREAK inc. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -291,79 +303,259 @@
                     </div>
                     <h3 class="mb-3">Payment Successful!</h3>
                     <p class="mb-4">Thank you for your purchase. Your items will be delivered to your Pokémon GO account shortly.</p>
-                    <a href="index.html" class="btn pokemon-btn-primary">Back to Home</a>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="index.html" class="btn pokemon-btn-primary">Back to Home</a>
+                        <a href="products.html" class="btn pokemon-btn-secondary">Continue Shopping</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-<!-- In payment.html, replace the script section at the bottom with: -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    // Payment functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        // Load cart from localStorage
-        const savedCart = localStorage.getItem('pokemonCart');
-        const cartItems = savedCart ? JSON.parse(savedCart) : [];
-        
-        // Display cart items
-        const orderItemsContainer = document.getElementById('orderItems');
-        const cartCountElement = document.getElementById('cartCount');
-        
-        // Update cart count in header
-        cartCountElement.textContent = cartItems.length;
-        
-        if (cartItems.length === 0) {
-            orderItemsContainer.innerHTML = '<p class="text-muted">No items in cart</p>';
-        } else {
-            orderItemsContainer.innerHTML = '';
-            
-            // Calculate totals
-            const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const tax = subtotal * 0.1; // 10% tax
-            const total = subtotal + tax;
-            
-            // Display each item
-            cartItems.forEach(item => {
-                const itemElement = document.createElement('div');
-                itemElement.className = 'd-flex justify-content-between mb-2';
-                itemElement.innerHTML = `
-                    <div class="d-flex align-items-center">
-                        <img src="${item.image}" alt="${item.name}" width="40" class="me-2">
-                        <span>${item.name} × ${item.quantity}</span>
-                    </div>
-                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
-                `;
-                orderItemsContainer.appendChild(itemElement);
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tooltips
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
             });
+
+            // Load cart from localStorage
+            const savedCart = localStorage.getItem('pokemonCart');
+            const cartItems = savedCart ? JSON.parse(savedCart) : [];
+            const orderItemsContainer = document.getElementById('orderItems');
             
-            // Update totals
-            document.getElementById('orderSubtotal').textContent = `$${subtotal.toFixed(2)}`;
-            document.getElementById('orderTax').textContent = `$${tax.toFixed(2)}`;
-            document.getElementById('orderTotal').textContent = `$${total.toFixed(2)}`;
-        }
-        
-        // Handle form submission
-        document.getElementById('paymentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+            // Update cart count in header
+            document.getElementById('cartCount').textContent = cartItems.length;
             
-            // Validate terms checkbox
-            if (!document.getElementById('termsCheck').checked) {
-                alert('Please agree to the Terms of Service');
-                return;
+            if (cartItems.length === 0) {
+                orderItemsContainer.innerHTML = '<p class="text-muted">No items in cart</p>';
+            } else {
+                orderItemsContainer.innerHTML = '';
+                
+                // Display each item
+                cartItems.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'd-flex justify-content-between mb-2';
+                    itemElement.innerHTML = `
+                        <div class="d-flex align-items-center">
+                            <img src="${item.image}" alt="${item.name}" width="40" class="me-2">
+                            <span>${item.name} × ${item.quantity}</span>
+                        </div>
+                        <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                    `;
+                    orderItemsContainer.appendChild(itemElement);
+                });
+                
+                // Calculate totals
+                const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const tax = subtotal * 0.1; // 10% tax
+                const total = subtotal + tax;
+                
+                // Update totals display
+                document.getElementById('orderSubtotal').textContent = `$${subtotal.toFixed(2)}`;
+                document.getElementById('orderTax').textContent = `$${tax.toFixed(2)}`;
+                document.getElementById('orderTotal').textContent = `$${total.toFixed(2)}`;
             }
-            
-            // Show success modal
-            const successModal = new bootstrap.Modal(document.getElementById('paymentSuccessModal'));
-            successModal.show();
-            
-            // Clear cart after successful payment
-            localStorage.removeItem('pokemonCart');
+
+            // Payment method selection
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    paymentMethods.forEach(m => m.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    if (this.dataset.method === 'card') {
+                        document.getElementById('cardPaymentForm').style.display = 'block';
+                        document.getElementById('paypalPaymentForm').style.display = 'none';
+                    } else {
+                        document.getElementById('cardPaymentForm').style.display = 'none';
+                        document.getElementById('paypalPaymentForm').style.display = 'block';
+                    }
+                });
+            });
+
+            // Card number formatting
+            const cardNumberInput = document.getElementById('cardNumber');
+            cardNumberInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\s+/g, ''); // Remove all spaces
+                if (value.length > 0) {
+                    value = value.match(new RegExp('.{1,4}', 'g')).join(' '); // Add space every 4 digits
+                }
+                e.target.value = value;
+            });
+
+            // Expiry date formatting
+            const expiryDateInput = document.getElementById('expiryDate');
+            expiryDateInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, ''); // Remove non-digits
+                if (value.length > 2) {
+                    value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                }
+                e.target.value = value;
+            });
+
+            // CVV input restriction
+            const cvvInput = document.getElementById('cvv');
+            cvvInput.addEventListener('input', function(e) {
+                e.target.value = e.target.value.replace(/\D/g, ''); // Numbers only
+                if (e.target.value.length > 4) {
+                    e.target.value = e.target.value.substring(0, 4);
+                }
+            });
+
+            // Form validation and submission
+            document.getElementById('completeOrderBtn').addEventListener('click', function() {
+                // Validate terms checkbox
+                if (!document.getElementById('termsCheck').checked) {
+                    alert('Please agree to the Terms of Service');
+                    return;
+                }
+
+                // Get selected payment method
+                const selectedMethod = document.querySelector('.payment-method.active').dataset.method;
+                
+                if (selectedMethod === 'card') {
+                    // Validate card form
+                    const cardNumber = document.getElementById('cardNumber').value.replace(/\s+/g, '');
+                    const cardName = document.getElementById('cardName').value.trim();
+                    const expiryDate = document.getElementById('expiryDate').value;
+                    const cvv = document.getElementById('cvv').value;
+                    
+                    if (!cardNumber || cardNumber.length < 16) {
+                        alert('Please enter a valid card number');
+                        return;
+                    }
+                    
+                    if (!cardName) {
+                        alert('Please enter the name on card');
+                        return;
+                    }
+                    
+                    if (!expiryDate || expiryDate.length < 5) {
+                        alert('Please enter a valid expiry date (MM/YY)');
+                        return;
+                    }
+                    
+                    if (!cvv || cvv.length < 3) {
+                        alert('Please enter a valid CVV');
+                        return;
+                    }
+                }
+                
+                // Validate billing address
+                const country = document.getElementById('country').value;
+                const address = document.getElementById('address').value.trim();
+                const city = document.getElementById('city').value.trim();
+                const state = document.getElementById('state').value.trim();
+                const zip = document.getElementById('zip').value.trim();
+                
+                if (!country) {
+                    alert('Please select your country');
+                    return;
+                }
+                
+                if (!address) {
+                    alert('Please enter your street address');
+                    return;
+                }
+                
+                if (!city) {
+                    alert('Please enter your city');
+                    return;
+                }
+                
+                if (!state) {
+                    alert('Please enter your state/province');
+                    return;
+                }
+                
+                if (!zip) {
+                    alert('Please enter your ZIP/postal code');
+                    return;
+                }
+
+                // Show loading state
+                const btn = document.getElementById('completeOrderBtn');
+                btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Processing...';
+                btn.disabled = true;
+
+                // Simulate payment processing (2 seconds)
+                setTimeout(() => {
+                    // Show success modal
+                    const successModal = new bootstrap.Modal(document.getElementById('paymentSuccessModal'));
+                    successModal.show();
+                    
+                    // Clear cart after successful payment
+                    localStorage.removeItem('pokemonCart');
+                    
+                    // Reset button
+                    btn.innerHTML = 'Complete Order';
+                    btn.disabled = false;
+                }, 2000);
+            });
+
+            // PayPal button handler
+            document.getElementById('paypalButton').addEventListener('click', function() {
+                // Validate terms checkbox
+                if (!document.getElementById('termsCheck').checked) {
+                    alert('Please agree to the Terms of Service');
+                    return;
+                }
+
+                // Validate billing address
+                const country = document.getElementById('country').value;
+                const address = document.getElementById('address').value.trim();
+                const city = document.getElementById('city').value.trim();
+                const state = document.getElementById('state').value.trim();
+                const zip = document.getElementById('zip').value.trim();
+                
+                if (!country) {
+                    alert('Please select your country');
+                    return;
+                }
+                
+                if (!address) {
+                    alert('Please enter your street address');
+                    return;
+                }
+                
+                if (!city) {
+                    alert('Please enter your city');
+                    return;
+                }
+                
+                if (!state) {
+                    alert('Please enter your state/province');
+                    return;
+                }
+                
+                if (!zip) {
+                    alert('Please enter your ZIP/postal code');
+                    return;
+                }
+
+                // Show loading state
+                const btn = document.getElementById('paypalButton');
+                btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Redirecting to PayPal...';
+                btn.disabled = true;
+
+                // Simulate PayPal redirect (3 seconds)
+                setTimeout(() => {
+                    // Show success modal
+                    const successModal = new bootstrap.Modal(document.getElementById('paymentSuccessModal'));
+                    successModal.show();
+                    
+                    // Clear cart after successful payment
+                    localStorage.removeItem('pokemonCart');
+                    
+                    // Reset button
+                    btn.innerHTML = '<i class="fab fa-paypal me-2"></i> Continue with PayPal';
+                    btn.disabled = false;
+                }, 3000);
+            });
         });
-        
-        // Initialize tooltips
-        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
-        });
-    });
-</script>
+    </script>
+</body>
+</html>
