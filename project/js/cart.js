@@ -1,4 +1,3 @@
-// cart.js - This will be shared between both pages
 class PokemonCart {
     constructor() {
         this.items = [];
@@ -26,13 +25,10 @@ class PokemonCart {
         return { subtotal, tax, total };
     }
     
-    // Add methods for adding/removing items as needed
 }
 
-// Initialize cart when script loads
 const pokemonCart = new PokemonCart();
 
-// Update cart count in header
 function updateCartCount() {
     const cartCountElements = document.querySelectorAll('#cartCount');
     const count = pokemonCart.getCount();
@@ -42,5 +38,4 @@ function updateCartCount() {
     });
 }
 
-// Call this when the page loads
 document.addEventListener('DOMContentLoaded', updateCartCount);
